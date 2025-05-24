@@ -1,3 +1,4 @@
+/* ฟอนต์และพื้นหลัง */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,49 +6,75 @@ body {
   background-color: #f0f4f8;
 }
 
+/* ส่วนหัวและท้าย */
 header, footer {
   background-color: #005288;
   color: white;
-  text-align: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
+/* ปรับ header ให้เป็น flex */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ชื่อเว็บใน header */
+h1 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.8rem;
+  white-space: nowrap;
+}
+
+/* main */
 main {
   padding: 2rem;
   max-width: 800px;
   margin: auto;
 }
 
-h1 {
-  color : #ffffff;
+section {
+  margin-bottom: 3rem;
 }
 
+/* หัวข้อย่อย */
 h2 {
   color: #003f5c;
+  margin-bottom: 1rem;
 }
 
+/* ฟอร์ม */
 form {
   background-color: white;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 2rem;
 }
 
+/* ป้ายกำกับ */
 label {
   display: block;
   margin-top: 1rem;
   font-weight: bold;
 }
 
-input[type="text"], textarea, input[type="file"] {
+/* กล่องกรอกข้อมูล */
+input[type="text"],
+textarea,
+input[type="file"] {
   width: 100%;
   padding: 0.5rem;
   margin-top: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
+/* ปุ่ม */
 button {
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
@@ -56,14 +83,19 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #005fa3;
 }
 
-#search-results {
+/* ผลการค้นหา */
+#search-results,
+#status-result {
   margin-top: 1rem;
+  font-size: 1rem;
+  color: #333;
 }
 
 .case-result {
@@ -74,6 +106,213 @@ button:hover {
   margin-bottom: 1rem;
 }
 
+/* ระยะห่างของ section สถานะ */
 #status-section {
   margin-top: 2rem;
+}
+
+/* แถบนำทาง (navbar) */
+nav.navbar {
+  background-color: transparent; /* โปร่งใสเพราะ header มีพื้นหลังแล้ว */
+}
+
+nav.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+nav.navbar li {
+  margin: 0;
+}
+
+nav.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav.navbar a:hover,
+nav.navbar a.active {
+  background-color: #0077cc;
+  box-shadow: 0 0 8px #0077cc;
+}
+
+
+/* === CSS สำหรับหน้าค้นหา: ฟิลเตอร์และตาราง === */
+
+#filterForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  align-items: flex-end;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 150px;
+  min-width: 120px;
+  font-weight: 600;
+  color: #003f5c;
+}
+
+.filter-group label {
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+select, input[type="date"] {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#filterForm button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-weight: 700;
+  height: 38px;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+#filterForm button:hover {
+  background-color: #005fa3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  background-color: #005288;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.person-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  input[type="text"],
+  textarea,
+  input[type="file"],
+  button,
+  select,
+  input[type="date"] {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+
+  form {
+    padding: 1rem;
+  }
+
+  /* header เปลี่ยนเป็นแนวตั้ง */
+  header {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  /* navbar จัดกึ่งกลาง */
+  nav.navbar ul {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* ฟอร์มฟิลเตอร์เป็นแนวตั้ง */
+  #filterForm {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .filter-group {
+    min-width: auto;
+    width: 100%;
+  }
+
+  /* ตาราง Responsive */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1rem;
+  }
+
+  td {
+    padding-left: 50%;
+    position: relative;
+    text-align: left;
+  }
+
+  td::before {
+    position: absolute;
+    left: 1rem;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  td:nth-of-type(1)::before { content: "ภาพ"; }
+  td:nth-of-type(2)::before { content: "ชื่อ"; }
+  td:nth-of-type(3)::before { content: "เพศ"; }
+  td:nth-of-type(4)::before { content: "อายุ"; }
+  td:nth-of-type(5)::before { content: "จังหวัด"; }
+  td:nth-of-type(6)::before { content: "วันที่หาย"; }
 }

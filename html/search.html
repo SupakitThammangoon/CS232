@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ค้นหาคนหาย</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/search.css" />
+</head>
+<body>
+  <header>
+    <h1>ค้นหาคนหาย</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="main.html">หน้าแจ้งเบาะแส</a></li>
+        <li><a href="search.html" class="active">ค้นหาคนหาย</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <!-- Filter form -->
+      <form id="filterForm">
+        <div class="filter-group">
+          <label for="gender">เพศ:</label>
+          <select id="gender" name="gender">
+            <option value="">ทั้งหมด</option>
+            <option value="ชาย">ชาย</option>
+            <option value="หญิง">หญิง</option>
+            <option value="อื่นๆ">อื่นๆ</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+  <label for="ageRange">ช่วงอายุ:</label>
+  <select id="ageRange" name="ageRange">
+    <option value="">ทั้งหมด</option>
+    <option value="lt5">ต่ำกว่า 5 ปี</option>
+    <option value="5to24">5-24 ปี</option>
+    <option value="25to44">25-44 ปี</option>
+    <option value="45to64">45-64 ปี</option>
+    <option value="65plus">65 ปีขึ้นไป</option>
+    <option value="unknown">ไม่สามารถระบุได้</option>
+  </select>
+</div>
+
+        <div class="filter-group">
+          <label>วันที่แจ้งหาย (ช่วง):</label>
+          <input type="date" id="dateFrom" name="dateFrom">
+          -
+          <input type="date" id="dateTo" name="dateTo">
+        </div>
+
+        <div class="filter-group">
+          <label for="province">จังหวัด:</label>
+          <select id="province" name="province">
+            <option value="">ทั้งหมด</option>
+            <option value="เชียงใหม่">เชียงใหม่</option>
+            <option value="กรุงเทพฯ">กรุงเทพฯ</option>
+            <option value="นครราชสีมา">นครราชสีมา</option>
+            <!-- เพิ่มจังหวัดอื่นๆตามต้องการ -->
+          </select>
+        </div>
+        
+        <button type="submit">ค้นหา</button>
+      </form>
+
+      <table id="missingTable">
+        <thead>
+          <tr>
+            <th>ภาพ</th>
+            <th>ชื่อ</th>
+            <th>เพศ</th>
+            <th>อายุ</th>
+            <th>จังหวัด</th>
+            <th>วันที่แจ้งหาย</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="images/person1.jpg" alt="สมชาย ใจดี" class="person-img"></td>
+            <td>สมชาย ใจดี</td>
+            <td>ชาย</td>
+            <td>45</td>
+            <td>เชียงใหม่</td>
+            <td>2025-05-01</td>
+          </tr>
+          <tr>
+            <td><img src="images/person2.jpg" alt="อรทัย ศรีสุข" class="person-img"></td>
+            <td>อรทัย ศรีสุข</td>
+            <td>หญิง</td>
+            <td>30</td>
+            <td>กรุงเทพฯ</td>
+            <td>2025-04-28</td>
+          </tr>
+          <tr>
+            <td><img src="images/person3.jpg" alt="วีระพล ทองคำ" class="person-img"></td>
+            <td>วีระพล ทองคำ</td>
+            <td>ชาย</td>
+            <td>60</td>
+            <td>นครราชสีมา</td>
+            <td>2025-03-15</td>
+          </tr>
+          <!-- เพิ่มข้อมูลเพิ่มเติมตามต้องการ -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Missing Persons Project</p>
+  </footer>
+
+  <script src="../js/search.js"></script>
+</body>
+</html>

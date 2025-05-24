@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Missing Persons</title>
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/main.css" />
 </head>
 <body>
   <header>
     <h1>ระบบติดตามผู้สูญหาย (Missing Persons)</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="main.html" class="active">หน้าแจ้งเบาะแส</a></li>
+        <li><a href="search.html">ค้นหาคนหาย</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -16,16 +22,16 @@
       <h2>แจ้งเบาะแส</h2>
       <form id="report-form">
         <label for="name">ชื่อผู้สูญหาย:</label>
-        <input type="text" id="name" required>
+        <input type="text" id="name" required />
 
         <label for="location">สถานที่พบเห็นล่าสุด:</label>
-        <input type="text" id="location" required>
+        <input type="text" id="location" required />
 
         <label for="description">รายละเอียดเพิ่มเติม:</label>
         <textarea id="description" rows="4"></textarea>
 
         <label for="image">แนบรูปภาพ:</label>
-        <input type="file" id="image" accept="image/*">
+        <input type="file" id="image" accept="image/*" />
 
         <button type="submit">ส่งข้อมูล</button>
       </form>
@@ -33,14 +39,14 @@
 
     <section id="search-section">
       <h2>ค้นหาเคสผู้สูญหาย</h2>
-      <input type="text" id="search-input" placeholder="ค้นหาด้วยชื่อหรือจังหวัด...">
+      <input type="text" id="search-input" placeholder="ค้นหาด้วยชื่อหรือจังหวัด..." />
       <button onclick="searchCase()">ค้นหา</button>
       <div id="search-results"></div>
     </section>
 
     <section id="status-section">
       <h2>ตรวจสอบสถานะเคส</h2>
-      <input type="text" id="status-code" placeholder="กรอกรหัสเคส (Case ID)">
+      <input type="text" id="status-code" placeholder="กรอกรหัสเคส (Case ID)" />
       <button onclick="checkStatus()">ตรวจสอบ</button>
       <div id="status-result"></div>
     </section>
