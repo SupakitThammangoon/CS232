@@ -15,14 +15,13 @@ header, footer {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* ปรับ header ให้เป็น flex */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-/* ชื่อเว็บใน header */
 h1 {
   color: #ffffff;
   margin: 0;
@@ -30,7 +29,6 @@ h1 {
   white-space: nowrap;
 }
 
-/* main */
 main {
   padding: 2rem;
   max-width: 800px;
@@ -41,13 +39,11 @@ section {
   margin-bottom: 3rem;
 }
 
-/* หัวข้อย่อย */
 h2 {
   color: #003f5c;
   margin-bottom: 1rem;
 }
 
-/* ฟอร์ม */
 form {
   background-color: white;
   padding: 1.5rem;
@@ -55,15 +51,16 @@ form {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* ป้ายกำกับ */
 label {
   display: block;
   margin-top: 1rem;
   font-weight: bold;
 }
 
-/* กล่องกรอกข้อมูล */
 input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
 textarea,
 input[type="file"] {
   width: 100%;
@@ -72,9 +69,11 @@ input[type="file"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+  font-size: 1rem;
+  height: 44px;
+  line-height: 1.4;
 }
 
-/* ปุ่ม */
 button {
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
@@ -90,7 +89,6 @@ button:hover {
   background-color: #005fa3;
 }
 
-/* ผลการค้นหา */
 #search-results,
 #status-result {
   margin-top: 1rem;
@@ -106,14 +104,12 @@ button:hover {
   margin-bottom: 1rem;
 }
 
-/* ระยะห่างของ section สถานะ */
 #status-section {
   margin-top: 2rem;
 }
 
-/* แถบนำทาง (navbar) */
 nav.navbar {
-  background-color: transparent; /* โปร่งใสเพราะ header มีพื้นหลังแล้ว */
+  background-color: transparent;
 }
 
 nav.navbar ul {
@@ -122,6 +118,7 @@ nav.navbar ul {
   margin: 0;
   padding: 0;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 nav.navbar li {
@@ -144,10 +141,8 @@ nav.navbar a.active {
   box-shadow: 0 0 8px #0077cc;
 }
 
-
-/* === CSS สำหรับหน้าค้นหา: ฟิลเตอร์และตาราง === */
-
-#filterForm {
+/* filter form สำหรับ search.html */
+#filter-form {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -180,7 +175,7 @@ select, input[type="date"] {
   font-size: 1rem;
 }
 
-#filterForm button {
+#filter-form button {
   background-color: #0077cc;
   color: white;
   border: none;
@@ -193,10 +188,11 @@ select, input[type="date"] {
   transition: background-color 0.3s ease;
 }
 
-#filterForm button:hover {
+#filter-form button:hover {
   background-color: #005fa3;
 }
 
+/* ตารางข้อมูล */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -230,6 +226,48 @@ tr:nth-child(even) {
   border-radius: 8px;
 }
 
+/* กล่องแสดงเคสผู้สูญหาย */
+#existing-cases {
+  margin-top: 3rem;
+}
+
+#case-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.case-card {
+  display: flex;
+  gap: 1rem;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  align-items: center;
+}
+
+.case-card img.person-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .case-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .case-card img.person-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   main {
@@ -258,21 +296,18 @@ tr:nth-child(even) {
     padding: 1rem;
   }
 
-  /* header เปลี่ยนเป็นแนวตั้ง */
   header {
     flex-direction: column;
     gap: 0.8rem;
     text-align: center;
   }
 
-  /* navbar จัดกึ่งกลาง */
   nav.navbar ul {
     justify-content: center;
     gap: 1rem;
   }
 
-  /* ฟอร์มฟิลเตอร์เป็นแนวตั้ง */
-  #filterForm {
+  #filter-form {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1rem;
@@ -283,7 +318,6 @@ tr:nth-child(even) {
     width: 100%;
   }
 
-  /* ตาราง Responsive */
   table, thead, tbody, th, td, tr {
     display: block;
   }
