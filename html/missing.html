@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"  content="width=device-width, initial-scale=1.0" />
+  <title>แจ้งเคสผู้สูญหาย (Report Missing Persons)</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <header>
+    <h1>แจ้งเคสผู้สูญหาย (Report Missing Persons)</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="missing.html" class="active">หน้าแจ้งเคส</a></li>
+        <li><a href="tip.html">หน้าแจ้งเบาะแส</a></li>
+        <li><a href="search.html">ค้นหาคนหาย</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="missing-section">
+      <form id="missing-form">
+        <!-- reporter_id ซ่อน -->
+        <input type="hidden" id="reporter-id" value="<!-- ใส่ user_id ที่ล็อกอินอยู่ -->" />
+
+        <label for="full-name">ชื่อ-นามสกุล:</label>
+        <input type="text" id="full-name" name="fullName" required />
+
+        <label for="age">อายุ:</label>
+        <input type="number" id="age" name="age" min="0" required />
+
+        <label for="gender">เพศ:</label>
+        <select id="gender" name="gender" required>
+          <option value="">เลือกเพศ</option>
+          <option value="ชาย">ชาย</option>
+          <option value="หญิง">หญิง</option>
+          <option value="อื่นๆ">อื่นๆ</option>
+        </select>
+
+        <label for="missing-date">วันที่หาย:</label>
+        <input type="date" id="missing-date" name="missingDate" required />
+
+        <label for="last-seen">จังหวัดที่พบเห็นล่าสุด:</label>
+        <input type="text" id="last-seen" name="lastSeen" required />
+
+        <label for="details">รายละเอียดเพิ่มเติม:</label>
+        <textarea id="details" name="details" rows="4"></textarea>
+
+        <label for="photo">แนบรูปภาพ:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" />
+
+        <button type="submit">แจ้งเคส</button>
+      </form>
+    </section>
+
+    <section id="existing-cases">
+      <h2>เคสผู้สูญหายที่มีอยู่</h2>
+      <div id="cases-container" class="cases-grid">
+        <!-- จะถูกเติมจาก JS -->
+      </div>
+    </section>
+  </main>
+  <div id="custom-alert-overlay" class="hidden">
+    <div id="custom-alert-box">
+      <p id="custom-alert-message"></p>
+      <button id="custom-alert-close">ตกลง</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Missing Persons Project</p>
+  </footer>
+
+  <script src="../js/missing.js"></script>
+</body>
+</html>
